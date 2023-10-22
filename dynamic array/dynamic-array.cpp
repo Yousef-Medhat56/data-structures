@@ -68,6 +68,7 @@ void DynamicArray<T>::resize()
     // copy the old array to the new array
     std::copy(arr, arr + size, new_arr);
 
+    delete [] arr;
     arr = new_arr;
     capacity = new_capacity;
 }
