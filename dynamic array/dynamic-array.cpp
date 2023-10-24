@@ -1,6 +1,7 @@
 #include "./dynamic-array.h"
 #include <cassert>
 #include <algorithm>
+#include <iostream>
 
 template <class T>
 DynamicArray<T>::DynamicArray()
