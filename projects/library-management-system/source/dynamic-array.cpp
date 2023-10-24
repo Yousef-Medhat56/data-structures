@@ -27,7 +27,8 @@ T &DynamicArray<T>::getElmByIndex(int index)
 template <class T>
 T &DynamicArray<T>::operator[](int index)
 {
-    this->getElm[index];
+    assert(("Index is invalid", index >= 0 && index < size));
+    return arr[index];
 }
 
 template <class T>
@@ -89,7 +90,7 @@ void DynamicArray<T>::display()
     std::cout << '{';
     for (int i = 0; i < size; i++)
     {
-        std::cout << this->getElm(i);
+        std::cout << this->getElmByIndex(i);
         if (i < size - 1)
             std::cout << ',';
     }
