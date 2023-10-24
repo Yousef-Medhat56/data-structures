@@ -7,5 +7,6 @@ private:
     DynamicArray<Book *> booksList;
 
 public:
+    DynamicArray<Book *>* getBooksList();
     ~Library();
 };
