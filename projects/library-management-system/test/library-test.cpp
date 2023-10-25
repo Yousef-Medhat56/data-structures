@@ -11,6 +11,8 @@ int main()
     library.addBook();
     library.addBook();
 
+    library.removeBook(2); //remove the 2nd book
+
     for (int i = 0; i < library.getBooksList()->getSize(); i++)
     {
         library.getBooksList()->getElmByIndex(i)->printDetails();
