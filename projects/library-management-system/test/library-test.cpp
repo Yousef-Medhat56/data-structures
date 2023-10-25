@@ -15,10 +15,7 @@ int main()
  
     cout << library.searchForBook("book 3") << endl; // should return 1
 
-    for (int i = 0; i < library.getBooksList()->getSize(); i++)
-    {
-        library.getBooksList()->getElmByIndex(i)->printDetails();
-    }
+   library.displayAllBooks();
 
     return 0;
 }

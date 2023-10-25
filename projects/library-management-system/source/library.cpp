@@ -57,7 +57,7 @@ int Library::searchForBook(string val)
     int booksListSize = booksList.getSize();
     for (int i = 0; i < booksListSize; i++)
     {
-        //try to convert val to int and check if it is for a book id
+        // try to convert val to int and check if it is for a book id
         try
         {
             if (stoi(val) == booksList[i]->getId())
@@ -65,7 +65,7 @@ int Library::searchForBook(string val)
                 return i;
             }
         }
-        //else, search for the book by its title, author or genre
+        // else, search for the book by its title, author or genre
         catch (...)
         {
             if (
@@ -76,6 +76,49 @@ int Library::searchForBook(string val)
         }
     }
     return -1;
+}
+
+void Library::displayAllBooks()
+{
+    int displayedBooks = 0;
+    for (int i = 0; i < booksList.getSize(); i++)
+    {
+        booksList[i]->printDetails();
+    }
+    if (displayedBooks == 0)
+        cout << "There are no  books" << endl;
+}
+
+void Library::displayAvailableBooks()
+{
+    for (int i = 0; i < booksList.getSize(); i++)
+    {
+        int displayedBooks = 0;
+        if (booksList[i]->getStatus())
+        {
+            booksList[i]->printDetails();
+            displayedBooks++;
+        }
+
+        if (displayedBooks == 0)
+            cout << "There are no available books" << endl;
+    }
+}
+
+void Library::displayBorrowedBooks()
+{
+    for (int i = 0; i < booksList.getSize(); i++)
+    {
+        int displayedBooks = 0;
+        if (!booksList[i]->getStatus())
+        {
+            booksList[i]->printDetails();
+            displayedBooks++;
+        }
+
+        if (displayedBooks == 0)
+            cout << "There are no borrowed books" << endl;
+    }
 }
 
 Library::~Library()

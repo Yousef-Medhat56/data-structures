@@ -13,5 +13,8 @@ public:
     void removeBook(int id); //remove a book by its id
     int findBookById(int id); //find a book by its id and returns its index;
     int searchForBook(string val); //search for a book by its id, title, author or genre and returns its index
+    void displayAllBooks(); 
+    void displayAvailableBooks();
+    void displayBorrowedBooks();
     ~Library();
 };
