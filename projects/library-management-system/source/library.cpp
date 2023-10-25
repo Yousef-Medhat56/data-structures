@@ -43,6 +43,15 @@ int Library::findBookById(int id)
     return -1;
 }
 
+void Library::removeBook(int id)
+{
+    int bookIndex = findBookById(id);
+    if (bookIndex >= 0)
+    {
+        booksList.remove(bookIndex);
+    }
+}
+
 Library::~Library()
 {
     for (int i = 0; i < booksList.getSize(); i++)
