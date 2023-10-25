@@ -147,6 +147,23 @@ void Library::returnBook(int id)
     }
 }
 
+void Library::stats()
+{
+    int availableBooks = 0;
+    int borrowedBooks = 0;
+    for (int i = 0; i < booksList.getSize(); i++)
+    {
+        if (booksList[i]->getStatus())
+            availableBooks++;
+        else
+            borrowedBooks++;
+    }
+
+    cout << "Total books: " << booksList.getSize() << endl;
+    cout << "Available books: " << availableBooks << endl;
+    cout << "Borrowed books: " << borrowedBooks << endl;
+}
+
 Library::~Library()
 {
     for (int i = 0; i < booksList.getSize(); i++)

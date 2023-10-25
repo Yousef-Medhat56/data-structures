@@ -31,5 +31,7 @@ int main()
     cout << "# All books:" << endl;
     library.displayAllBooks();
 
+    cout << "# Stats:" << endl;
+    library.stats();
     return 0;
 }

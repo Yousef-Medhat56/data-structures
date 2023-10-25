@@ -18,5 +18,6 @@ public:
     void displayBorrowedBooks();
     void borrowBook(int id); // borrow a book
     void returnBook(int id); // return a borrowed book
+    void stats();            // show books statistics (total number of books, borrowed books, available books)
     ~Library();
 };
