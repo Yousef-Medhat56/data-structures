@@ -52,6 +52,32 @@ void Library::removeBook(int id)
     }
 }
 
+int Library::searchForBook(string val)
+{
+    int booksListSize = booksList.getSize();
+    for (int i = 0; i < booksListSize; i++)
+    {
+        //try to convert val to int and check if it is for a book id
+        try
+        {
+            if (stoi(val) == booksList[i]->getId())
+            {
+                return i;
+            }
+        }
+        //else, search for the book by its title, author or genre
+        catch (...)
+        {
+            if (
+                val == booksList[i]->getTitle() || val == booksList[i]->getAuthor() || val == booksList[i]->getGenre())
+            {
+                return i;
+            }
+        }
+    }
+    return -1;
+}
+
 Library::~Library()
 {
     for (int i = 0; i < booksList.getSize(); i++)
