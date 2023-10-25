@@ -84,6 +84,7 @@ void Library::displayAllBooks()
     for (int i = 0; i < booksList.getSize(); i++)
     {
         booksList[i]->printDetails();
+        displayedBooks++;
     }
     if (displayedBooks == 0)
         cout << "There are no  books" << endl;
@@ -91,33 +92,58 @@ void Library::displayAllBooks()
 
 void Library::displayAvailableBooks()
 {
+    int displayedBooks = 0;
     for (int i = 0; i < booksList.getSize(); i++)
     {
-        int displayedBooks = 0;
+
         if (booksList[i]->getStatus())
         {
             booksList[i]->printDetails();
             displayedBooks++;
         }
-
-        if (displayedBooks == 0)
-            cout << "There are no available books" << endl;
     }
+    if (displayedBooks == 0)
+        cout << "There are no available books" << endl;
 }
 
 void Library::displayBorrowedBooks()
 {
+    int displayedBooks = 0;
     for (int i = 0; i < booksList.getSize(); i++)
     {
-        int displayedBooks = 0;
         if (!booksList[i]->getStatus())
         {
             booksList[i]->printDetails();
             displayedBooks++;
         }
+    }
+    if (displayedBooks == 0)
+        cout << "There are no borrowed books" << endl;
+}
 
-        if (displayedBooks == 0)
-            cout << "There are no borrowed books" << endl;
+void Library::borrowBook(int id)
+{
+    int bookIndex = findBookById(id);
+    if (bookIndex >= 0)
+    {
+        bool isAvailable = booksList[bookIndex]->getStatus();
+        if (isAvailable)
+            booksList[bookIndex]->toggleStatus();
+        else
+            cout << "The book is not available" << endl;
+    }
+}
+
+void Library::returnBook(int id)
+{
+    int bookIndex = findBookById(id);
+    if (bookIndex >= 0)
+    {
+        bool isAvailable = booksList[bookIndex]->getStatus();
+        if (!isAvailable)
+            booksList[bookIndex]->toggleStatus();
+        else
+            cout << "The book is not borrowed" << endl;
     }
 }
 
