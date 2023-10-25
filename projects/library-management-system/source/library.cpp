@@ -7,7 +7,7 @@ DynamicArray<Book *> *Library::getBooksList()
 
 void Library::addBook()
 {
-    //the id of the new book 
+    // the id of the new book
     int newBookId = assignNewBookId();
     Book *newBook = new Book(newBookId);
     getBooksList()->push(newBook);
@@ -17,17 +17,30 @@ int Library::assignNewBookId()
 {
     int booksListSize = booksList.getSize();
 
-    //check if the books list is not empty
+    // check if the books list is not empty
     if (booksListSize > 0)
     {
         // get the id of the last book
         int lastBookId = booksList[--booksListSize]->getId();
-        return ++lastBookId; 
+        return ++lastBookId;
     }
     else
     {
         return 1;
     }
+}
+
+int Library::findBookById(int id)
+{
+    int booksListSize = booksList.getSize();
+    for (int i = 0; i < booksListSize; i++)
+    {
+        if (id == booksList[i]->getId())
+        {
+            return i;
+        }
+    }
+    return -1;
 }
 
 Library::~Library()
