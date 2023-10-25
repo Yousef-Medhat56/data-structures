@@ -9,9 +9,11 @@ int main()
     cout << library.findBookById(1) << endl; // should return 0
 
     library.addBook();
-    library.addBook();
+    library.addBook(); // i will make this book title = "book 3"
 
     library.removeBook(2); //remove the 2nd book
+ 
+    cout << library.searchForBook("book 3") << endl; // should return 1
 
     for (int i = 0; i < library.getBooksList()->getSize(); i++)
     {
