@@ -12,6 +12,7 @@ private:
 
 public:
     Book(int id);
+    int getId();            // get the book id
     void inputAttrValues(); // ask the user to input the attributes values
     void printDetails();    // print the book details
 };

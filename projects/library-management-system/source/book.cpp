@@ -23,3 +23,7 @@ void Book::printDetails()
     cout << "Genre: " << genre << endl;
     cout << "Status: " << (isAvailable ? "Available" : "Not available") << endl;
 }
+
+int Book::getId(){
+    return id;
+}
