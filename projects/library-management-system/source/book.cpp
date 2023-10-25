@@ -27,3 +27,16 @@ void Book::printDetails()
 int Book::getId(){
     return id;
 }
+
+string Book::getTitle(){
+    return title;
+}
+string Book::getAuthor(){
+    return author;
+}
+string Book::getGenre(){
+    return genre;
+}
+bool Book::getStatus(){
+    return isAvailable;
+}
