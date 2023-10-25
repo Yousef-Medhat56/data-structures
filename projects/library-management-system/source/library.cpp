@@ -11,6 +11,7 @@ void Library::addBook()
     int newBookId = assignNewBookId();
     Book *newBook = new Book(newBookId);
     getBooksList()->push(newBook);
+    Console::success("Book added successfully!");
 }
 
 int Library::assignNewBookId()
@@ -40,6 +41,7 @@ int Library::findBookById(int id)
             return i;
         }
     }
+    Console::error("Book doesn't exist");
     return -1;
 }
 
@@ -49,6 +51,7 @@ void Library::removeBook(int id)
     if (bookIndex >= 0)
     {
         booksList.remove(bookIndex);
+        Console::success("Book removed successfully!");
     }
 }
 
@@ -75,6 +78,7 @@ int Library::searchForBook(string val)
             }
         }
     }
+    Console::error("Book doesn't exist");
     return -1;
 }
 
@@ -84,6 +88,7 @@ void Library::displayAllBooks()
     for (int i = 0; i < booksList.getSize(); i++)
     {
         booksList[i]->printDetails();
+        Console::divider_v2();
         displayedBooks++;
     }
     if (displayedBooks == 0)
@@ -99,6 +104,7 @@ void Library::displayAvailableBooks()
         if (booksList[i]->getStatus())
         {
             booksList[i]->printDetails();
+            Console::divider_v2();
             displayedBooks++;
         }
     }
@@ -114,6 +120,7 @@ void Library::displayBorrowedBooks()
         if (!booksList[i]->getStatus())
         {
             booksList[i]->printDetails();
+            Console::divider_v2();
             displayedBooks++;
         }
     }
@@ -128,9 +135,12 @@ void Library::borrowBook(int id)
     {
         bool isAvailable = booksList[bookIndex]->getStatus();
         if (isAvailable)
+        {
             booksList[bookIndex]->toggleStatus();
+            Console::success("The book is borrowed successfully");
+        }
         else
-            cout << "The book is not available" << endl;
+            Console::error("The book is not available");
     }
 }
 
@@ -141,9 +151,12 @@ void Library::returnBook(int id)
     {
         bool isAvailable = booksList[bookIndex]->getStatus();
         if (!isAvailable)
+        {
             booksList[bookIndex]->toggleStatus();
+            Console::success("The book is returned successfully");
+        }
         else
-            cout << "The book is not borrowed" << endl;
+            Console::error("The book is not borrowed");
     }
 }
 
