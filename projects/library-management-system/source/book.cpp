@@ -24,19 +24,28 @@ void Book::printDetails()
     cout << "Status: " << (isAvailable ? "Available" : "Not available") << endl;
 }
 
-int Book::getId(){
+int Book::getId()
+{
     return id;
 }
 
-string Book::getTitle(){
+string Book::getTitle()
+{
     return title;
 }
-string Book::getAuthor(){
+string Book::getAuthor()
+{
     return author;
 }
-string Book::getGenre(){
+string Book::getGenre()
+{
     return genre;
 }
-bool Book::getStatus(){
+bool Book::getStatus()
+{
     return isAvailable;
+}
+void Book::toggleStatus()
+{
+    isAvailable = !isAvailable;
 }
