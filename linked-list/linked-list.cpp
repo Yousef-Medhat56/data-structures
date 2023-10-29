@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include "./linked-list.h"
 using namespace std;
 
@@ -102,6 +103,19 @@ void DoubleLinkedList<T>::popFront()
 }
 
 template <class T>
+T &DoubleLinkedList<T>::getElmByIndex(int index)
+{
+    assert(index < size && index >= 0);
+
+    Node<T> *currNode = head;
+    for (int i = 0; i < index; i++)
+    {
+        currNode = currNode->next;
+    }
+
+    return currNode->data;
+}
+template <class T>
 void DoubleLinkedList<T>::display()
 {
     Node<T> *currNode = head;
@@ -114,8 +128,8 @@ void DoubleLinkedList<T>::display()
             currNode = currNode->next;
         }
 
-        cout << currNode->data << "}"<<endl;
+        cout << currNode->data << "}" << endl;
     }
     else
-        cout << "{}"<<endl;
+        cout << "{}" << endl;
 }
