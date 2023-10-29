@@ -24,3 +24,19 @@ DoubleLinkedList<T>::~DoubleLinkedList()
     delete currNode;
 }
 
+template <class T>
+void DoubleLinkedList<T>::pushFront(T val)
+{
+    Node<T> *newNode = new Node<T>(val);
+    newNode->prev = nullptr;
+    newNode->next = head;
+
+    if (head)
+        head->prev = newNode;
+
+    head = newNode;
+
+    if (!tail)
+        tail = head;
+    size++;
+}
