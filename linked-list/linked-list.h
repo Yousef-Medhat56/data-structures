@@ -26,6 +26,8 @@ public:
     void pushFront(T val);
     // push new element to the end of the list
     void pushBack(T val);
+    //delete an element from the end of the list
+    void popBack();
     // display the list elements
     void display();
 };

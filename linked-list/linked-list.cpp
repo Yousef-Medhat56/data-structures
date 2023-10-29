@@ -60,14 +60,41 @@ void DoubleLinkedList<T>::pushBack(T val)
 }
 
 template <class T>
+void DoubleLinkedList<T>::popBack()
+{
+    if (tail)
+    {
+        if (size == 1)
+        {
+            delete tail;
+            tail = nullptr;
+            head = nullptr;
+        }
+        else
+        {
+            tail = tail->prev;
+            delete tail->next;
+            tail->next = nullptr;
+        }
+        size--;
+    }
+}
+
+template <class T>
 void DoubleLinkedList<T>::display()
 {
     Node<T> *currNode = head;
-    cout << "{";
-    while (currNode->next)
+    if (currNode)
     {
-        cout << currNode->data << " <=> ";
-        currNode = currNode->next;
+        cout << "{";
+        while (currNode->next)
+        {
+            cout << currNode->data << " <=> ";
+            currNode = currNode->next;
+        }
+
+        cout << currNode->data << "}"<<endl;
     }
-    cout << currNode->data << "}";
+    else
+        cout << "{}"<<endl;
 }
