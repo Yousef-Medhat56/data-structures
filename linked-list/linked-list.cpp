@@ -40,3 +40,21 @@ void DoubleLinkedList<T>::pushFront(T val)
         tail = head;
     size++;
 }
+
+template <class T>
+void DoubleLinkedList<T>::pushBack(T val)
+{
+
+    Node<T> *newNode = new Node<T>(val);
+    newNode->prev = tail;
+    newNode->next = nullptr;
+
+    if (tail)
+        tail->next = newNode;
+
+    tail = newNode;
+
+    if (!head)
+        head = tail;
+    size++;
+}
