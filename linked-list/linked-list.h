@@ -28,6 +28,8 @@ public:
     void pushBack(T val);
     //delete an element from the end of the list
     void popBack();
+    //delete an element from the start of the list
+    void popFront();
     // display the list elements
     void display();
 };

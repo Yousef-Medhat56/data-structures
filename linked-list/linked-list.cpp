@@ -81,6 +81,27 @@ void DoubleLinkedList<T>::popBack()
 }
 
 template <class T>
+void DoubleLinkedList<T>::popFront()
+{
+    if (head)
+    {
+        if (size == 1)
+        {
+            delete head;
+            head = nullptr;
+            tail = nullptr;
+        }
+        else
+        {
+            head = head->next;
+            delete head->prev;
+            head->prev = nullptr;
+        }
+        size--;
+    }
+}
+
+template <class T>
 void DoubleLinkedList<T>::display()
 {
     Node<T> *currNode = head;

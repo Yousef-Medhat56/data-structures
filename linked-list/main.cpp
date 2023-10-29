@@ -6,7 +6,7 @@ int main()
     DoubleLinkedList<int> list;
 
     list.pushBack(4);
-    list.popBack();
+    list.popFront();
 
     list.display(); // should output: {}
     list.pushFront(3);
@@ -17,5 +17,8 @@ int main()
     list.popBack();
 
     list.display(); // should output: {1,3}
+    
+    list.popFront();
+    list.display(); // should output: {3}
     return 0;
 }
