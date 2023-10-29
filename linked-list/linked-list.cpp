@@ -58,3 +58,16 @@ void DoubleLinkedList<T>::pushBack(T val)
         head = tail;
     size++;
 }
+
+template <class T>
+void DoubleLinkedList<T>::display()
+{
+    Node<T> *currNode = head;
+    cout << "{";
+    while (currNode->next)
+    {
+        cout << currNode->data << " <=> ";
+        currNode = currNode->next;
+    }
+    cout << currNode->data << "}";
+}
