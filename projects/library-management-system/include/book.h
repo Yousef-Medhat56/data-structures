@@ -1,3 +1,6 @@
+#ifndef BOOK_H
+#define BOOK_H
+
 #include <string>
 using namespace std;
 
@@ -21,3 +24,5 @@ public:
     void inputAttrValues(); // ask the user to input the attributes values
     void printDetails();    // print the book details
 };
+
+#endif

@@ -1,3 +1,7 @@
+#ifndef LIBRARY_H
+#define LIBRARY_H
+
+
 #include "../source/dynamic-array.cpp"
 #include "../source/book.cpp"
 
@@ -21,3 +25,5 @@ public:
     void stats();            // show books statistics (total number of books, borrowed books, available books)
     ~Library();
 };
+
+#endif

@@ -1,3 +1,5 @@
+#ifndef DYNAMIC_ARRAY_H
+#define DYNAMIC_ARRAY_H
 template <class T>
 class DynamicArray
 {
@@ -28,3 +30,5 @@ public:
     // get the array current size
     int getSize();
 };
+
+#endif
