@@ -1,5 +1,5 @@
-# Linked list
-An implementation for the double linked list.
+# Queue array
+An implementation for the queue using array.
 
 ## Attributes
 1. capacity: the maximum number of elements the queue can hold.
