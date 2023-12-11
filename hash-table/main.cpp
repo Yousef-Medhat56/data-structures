@@ -7,6 +7,7 @@ using namespace std;
 int main()
 {
     Hash<string> hashObj;
-    cout<<hashObj.hash("Key");
+    hashObj.insert("key", "value");
+    hashObj.insert("key", "value");
     return 0;
 }
