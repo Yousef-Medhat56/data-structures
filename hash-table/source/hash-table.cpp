@@ -1,13 +1,25 @@
 #include "../include/hash-table.h"
 
-Hash::Hash()
+template <class T>
+Hash<T>::Hash()
 {
-    table_size = 100;
+    table_size = 10;
+    table = new Node<T>[table_size];
 }
 
-Hash::Hash(size_t size) : table_size(size) {}
+template <class T>
+Hash<T>::Hash(size_t size) : table_size(size) {
+    table = new Node<T>[table_size];
+}
 
-int Hash::hash(string key)
+
+template <class T>
+Hash<T>::~Hash(){
+    delete[] table;
+}
+
+template <class T>
+int Hash<T>::hash(string key)
 {
     int hash = 0;
     int index;

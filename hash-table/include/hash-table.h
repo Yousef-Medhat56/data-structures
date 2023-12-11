@@ -3,14 +3,31 @@
 
 #include <string>
 using namespace std;
+
+template <class T>
+struct Node
+{
+    string key;
+    T data;
+    Node *next;
+    Node(string key) : key(key), next(nullptr){};
+    Node(string key, T d) : key(key), data(d), next(nullptr){};
+    ~Node()
+    {
+        delete next;
+    };
+};
+template <class T>
 class Hash
 {
 private:
     size_t table_size;
+    Node<T> *table;
 
 public:
     Hash();
     Hash(size_t size);
+    ~Hash();
     int hash(string key);
 };
 #endif
