@@ -3,8 +3,14 @@
 
 #include <string>
 using namespace std;
-class Hash{
+class Hash
+{
+private:
+    size_t table_size;
+
 public:
-int hash(string key);
+    Hash();
+    Hash(size_t size);
+    int hash(string key);
 };
 #endif

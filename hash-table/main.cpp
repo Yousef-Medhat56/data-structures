@@ -5,6 +5,7 @@ using namespace std;
 
 int main()
 {
-
+    Hash hashObj;
+    cout<<hashObj.hash("Key");
     return 0;
 }
