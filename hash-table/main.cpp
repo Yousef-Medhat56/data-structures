@@ -9,5 +9,9 @@ int main()
     Hash<string> hashObj;
     hashObj.insert("key", "value");
     hashObj.insert("key", "value");
+    hashObj.insert("key", "value");
+
+    cout << hashObj.numberOfNodesInBucket(9) << endl;
+
     return 0;
 }

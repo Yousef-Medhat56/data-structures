@@ -27,5 +27,6 @@ public:
     ~Hash();
     int hash(string key);
     void insert(string key, T data);
+    int numberOfNodesInBucket(int bucket);
 };
 #endif

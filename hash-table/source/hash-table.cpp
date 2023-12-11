@@ -69,3 +69,20 @@ void Hash<T>::insert(string key, T value)
         currNode->next = newNode;
     }
 }
+
+template <class T>
+int Hash<T>::numberOfNodesInBucket(int bucket)
+{
+    int count = 0;
+    if (table[bucket] != nullptr)
+    {
+        count = 1;
+        Node<T> *currNode = table[bucket];
+        while (currNode->next)
+        {
+            count++;
+            currNode = currNode->next;
+        }
+    }
+    return count;
+}
