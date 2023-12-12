@@ -29,5 +29,7 @@ public:
     void insert(string key, T data);
     int numberOfNodesInBucket(int bucket);
     Node<T>* find(string key);
+    bool remove(string key);
+
 };
 #endif
