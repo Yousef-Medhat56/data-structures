@@ -28,5 +28,6 @@ public:
     int hash(string key);
     void insert(string key, T data);
     int numberOfNodesInBucket(int bucket);
+    Node<T>* find(string key);
 };
 #endif

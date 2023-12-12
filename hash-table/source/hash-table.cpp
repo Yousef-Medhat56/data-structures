@@ -86,3 +86,21 @@ int Hash<T>::numberOfNodesInBucket(int bucket)
     }
     return count;
 }
+
+template <class T>
+Node<T> *Hash<T>::find(string key)
+{
+    int index = hash(key);
+    Node<T> *currNode = table[index];
+
+    while (currNode != nullptr)
+    {
+        if (currNode->key == key)
+        {
+            return currNode;
+        }
+        currNode = currNode->next;
+    }
+
+    return nullptr; // Key not found
+}

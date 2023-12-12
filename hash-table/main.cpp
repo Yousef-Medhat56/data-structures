@@ -7,11 +7,15 @@ using namespace std;
 int main()
 {
     Hash<string> hashObj;
-    hashObj.insert("key", "value");
-    hashObj.insert("key", "value");
-    hashObj.insert("key", "value");
+    hashObj.insert("key_1", "value_1");
+    hashObj.insert("key_2", "value_2");
+    hashObj.insert("key_3", "value_3");
 
-    cout << hashObj.numberOfNodesInBucket(9) << endl;
+    cout << hashObj.numberOfNodesInBucket(3) << endl;
 
+    Node<string> *hashItem = hashObj.find("key_1");
+    if (hashItem)
+        cout << hashItem->data << endl;
+        
     return 0;
 }
