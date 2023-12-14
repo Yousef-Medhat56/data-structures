@@ -66,6 +66,16 @@ Node *BST::findPrivate(int key, Node *&node)
     return nullptr;
 }
 
+void BST::printChildren(int key)
+{
+    Node *node = find(key);
+    if (node)
+    {
+        node->left ? cout << node->left->key << endl : cout << "The node has no left child\n";
+        node->right ? cout << node->right->key << endl : cout << "The node has no right child\n";
+    }
+}
+
 BST::~BST()
 {
     destroyTree(root);

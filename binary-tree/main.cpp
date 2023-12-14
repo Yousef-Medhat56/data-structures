@@ -21,5 +21,8 @@ int main()
     cout << "\nSearch for a node by its key value:\n";
     Node *node = tree.find(83);
     cout << node->key << endl;
+
+    cout << "\nPrint node's children:\n";
+    tree.printChildren(50);
     return 0;
 }
