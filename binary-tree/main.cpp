@@ -28,5 +28,16 @@ int main()
         cout << "Parent: " << TreeKeys[i] << endl;
         tree.printChildren(TreeKeys[i]);
     }
+
+    cout << "\nFind smallest node:\n";
+    cout<<tree.findSmallest()->key<<endl;
+
+    tree.remove(50); //delete the root
+    cout << "\nPrint node's children after deletion:\n";
+    for (int i = 0; i < 16; i++)
+    {
+        cout << "Parent: " << TreeKeys[i] << endl;
+        tree.printChildren(TreeKeys[i]);
+    }
     return 0;
 }

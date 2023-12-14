@@ -76,6 +76,74 @@ void BST::printChildren(int key)
     }
 }
 
+Node *BST::findSmallest()
+{
+    return findSmallestPrivate(root);
+}
+
+Node *BST::findSmallestPrivate(Node *&node)
+{
+    if (node)
+    {
+        if (node->left)
+            return findSmallestPrivate(node->left);
+        else
+            return node;
+    }
+    return nullptr;
+}
+
+void BST::remove(int key)
+{
+     removePrivate(key, root);
+}
+
+Node* BST::removePrivate(int key, Node*& node)
+{
+    if (node == nullptr)
+    {
+        // Node not found
+        return nullptr;
+    }
+
+    if (key < node->key)
+    {
+        // Key is in the left subtree
+        node->left = removePrivate(key, node->left);
+    }
+    else if (key > node->key)
+    {
+        // Key is in the right subtree
+        node->right = removePrivate(key, node->right);
+    }
+    else
+    {
+        // Node with the key to be deleted is found
+
+        // Case 1: Node has no child or only one child
+        if (node->left == nullptr)
+        {
+            Node* temp = node->right;
+            delete node;
+            return temp;
+        }
+        else if (node->right == nullptr)
+        {
+            Node* temp = node->left;
+            delete node;
+            return temp;
+        }
+
+        // Case 2: Node has two children
+        Node* successor = findSmallestPrivate(node->right); // Find in-order successor
+        node->key = successor->key; // Copy the value of in-order successor
+        node->right = removePrivate(successor->key, node->right); // Recursively delete the in-order successor
+    }
+
+    return node;
+}
+
+
 BST::~BST()
 {
     destroyTree(root);

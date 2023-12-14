@@ -23,6 +23,8 @@ private:
     void printInOrderPrivate(Node *&node);
     void destroyTree(Node *&node);
     Node *findPrivate(int key, Node *&node);
+    Node *findSmallestPrivate(Node *&node);
+    Node* removePrivate(int key,Node *&node);
 
 public:
     BST();
@@ -31,5 +33,7 @@ public:
     void printInOrder();
     Node *find(int key);
     void printChildren(int key);
+    Node *findSmallest();
+    void remove(int key);
     ~BST();
 };
