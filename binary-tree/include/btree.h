@@ -19,7 +19,10 @@ class BST
 private:
     Node *root;
 
+    void addLeafPrivate(int key, Node *&node);
+
 public:
     BST();
     BST(int key);
+    void addLeaf(int key);
 };
