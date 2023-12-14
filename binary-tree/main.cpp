@@ -23,6 +23,10 @@ int main()
     cout << node->key << endl;
 
     cout << "\nPrint node's children:\n";
-    tree.printChildren(50);
+    for (int i = 0; i < 16; i++)
+    {
+        cout << "Parent: " << TreeKeys[i] << endl;
+        tree.printChildren(TreeKeys[i]);
+    }
     return 0;
 }
