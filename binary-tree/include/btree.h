@@ -20,9 +20,11 @@ private:
     Node *root;
 
     void addLeafPrivate(int key, Node *&node);
+    void printInOrderPrivate(Node *&node);
 
 public:
     BST();
     BST(int key);
     void addLeaf(int key);
+    void printInOrder();
 };

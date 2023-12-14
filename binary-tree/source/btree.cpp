@@ -24,3 +24,24 @@ void BST::addLeafPrivate(int key, Node *&node)
         // add node to the right child
         addLeafPrivate(key, node->right);
 }
+
+void BST::printInOrder()
+{
+    if (root)
+        printInOrderPrivate(root);
+    else
+        cout << "Tree is empty" << endl;
+}
+
+void BST::printInOrderPrivate(Node *&node)
+{
+    //check if there are smaller keys
+    if (node->left)
+        printInOrderPrivate(node->left);
+    
+    cout << node->key << " ";
+    
+    //check if there are bigger keys
+    if (node->right)
+        printInOrderPrivate(node->right);
+}
