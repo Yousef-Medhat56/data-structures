@@ -45,3 +45,18 @@ void BST::printInOrderPrivate(Node *&node)
     if (node->right)
         printInOrderPrivate(node->right);
 }
+
+BST::~BST()
+{
+    destroyTree(root);
+}
+
+void BST::destroyTree(Node *&node)
+{
+    if (node)
+    {
+        destroyTree(node->left);
+        destroyTree(node->right);
+        delete node;
+    }
+}
