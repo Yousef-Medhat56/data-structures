@@ -22,11 +22,13 @@ private:
     void addLeafPrivate(int key, Node *&node);
     void printInOrderPrivate(Node *&node);
     void destroyTree(Node *&node);
+    Node* findPrivate(int key,Node *&node);
 
 public:
     BST();
     BST(int key);
     void addLeaf(int key);
     void printInOrder();
+    Node* find(int key);
     ~BST();
 };

@@ -17,5 +17,9 @@ int main()
 
     cout << "Printing the tree in order\nAfter adding numbers\n";
     tree.printInOrder();
+
+    cout << "\nSearch for a node by its key value:\n";
+    Node *node = tree.find(83);
+    cout << node->key << endl;
     return 0;
 }

@@ -35,15 +35,35 @@ void BST::printInOrder()
 
 void BST::printInOrderPrivate(Node *&node)
 {
-    //check if there are smaller keys
+    // check if there are smaller keys
     if (node->left)
         printInOrderPrivate(node->left);
-    
+
     cout << node->key << " ";
-    
-    //check if there are bigger keys
+
+    // check if there are bigger keys
     if (node->right)
         printInOrderPrivate(node->right);
+}
+
+Node *BST::find(int key)
+{
+    return findPrivate(key, root);
+}
+
+Node *BST::findPrivate(int key, Node *&node)
+{
+    if (node)
+    {
+        if (key == node->key)
+            return node;
+        else if (key < node->key)
+            return findPrivate(key, node->left);
+        else if (key > node->key)
+            return findPrivate(key, node->right);
+    }
+
+    return nullptr;
 }
 
 BST::~BST()
