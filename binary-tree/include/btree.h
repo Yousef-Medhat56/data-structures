@@ -24,7 +24,7 @@ private:
     void destroyTree(Node *&node);
     Node *findPrivate(int key, Node *&node);
     Node *findSmallestPrivate(Node *&node);
-    Node* removePrivate(int key,Node *&node);
+    Node *removePrivate(int key, Node *&node);
 
 public:
     BST();

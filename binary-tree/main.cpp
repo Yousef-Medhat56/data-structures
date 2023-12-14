@@ -30,9 +30,9 @@ int main()
     }
 
     cout << "\nFind smallest node:\n";
-    cout<<tree.findSmallest()->key<<endl;
+    cout << tree.findSmallest()->key << endl;
 
-    tree.remove(50); //delete the root
+    tree.remove(50); // delete the root
     cout << "\nPrint node's children after deletion:\n";
     for (int i = 0; i < 16; i++)
     {
