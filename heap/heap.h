@@ -12,7 +12,7 @@ class Heap
     vector<T> data;
     //swap two elements using their index
     void swap(int from, int to);
-
+    void trickleUp(int position);
 public:
     Heap();
     void insert(T newElm);
