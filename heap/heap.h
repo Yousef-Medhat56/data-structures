@@ -13,9 +13,11 @@ class Heap
     //swap two elements using their index
     void swap(int from, int to);
     void trickleUp(int position);
+    void trickleDown(int parent);
 public:
     Heap();
     void insert(T newElm);
+    void remove();
     void display();
 };
 #endif
