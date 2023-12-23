@@ -1,6 +1,7 @@
 #include "./heap.h"
 #include <vector>
 #include <cmath>
+#include <iostream>
 using namespace std;
 
 template <class T>
@@ -22,7 +23,7 @@ void Heap<T>::trickleUp(int position)
 {
     if (position == 0)
         return;
-        
+
     //the index of the parent node
     int parent = floor((position - 1) / 2);
 
@@ -41,4 +42,11 @@ void Heap<T>::insert(T newElm)
     data.push_back(newElm);
     //increment lastPosition and trickle Up
     trickleUp(++lastPosition);
+}
+
+template <class T>
+void Heap<T>::display(){
+    for(int i = 0; i < data.size();i++){
+        cout<<data[i]<<" ";
+    }
 }
