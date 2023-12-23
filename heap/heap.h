@@ -15,5 +15,6 @@ class Heap
 
 public:
     Heap();
+    void insert(T newElm);
 };
 #endif

@@ -16,3 +16,9 @@ void Heap<T>::swap(int from, int to){
     data[from] = data[to];
     data[to] = temp;
 }
+
+template <class T>
+void Heap<T>::insert(T newElm){
+    data[++lastPosition] = newElm;
+    // trickleUp(lastPosition);
+}
